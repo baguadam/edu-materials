@@ -1,12 +1,4 @@
-# 8. gyakorlat - Még néhány Hook, Custom Hooks, Context
-
-Kisebb összefoglalásként: eddig megismerkedtünk a React alapjaival, 5. gyakorlaton megnéztük, hogyan tudunk komponenseket létrehozni, mi a komponensalapú fejlesztés alapja, hogyan tudnak egymással a parent-child kapcsolatban lévő komponensek kommunikálni: [Itt találod ezeket](https://github.com/baguadam/edu-kliens-2024-2025-2/tree/main/GY5).
-
-Ezt követően a 6. gyakorlaton megismerkedtünk az állapotkezeléssel és a `useState` hookkal: [Itt találod ezeket](https://github.com/baguadam/edu-kliens-2024-2025-2/tree/main/GY6).
-
-A 7. gyakorlaton az eddigiek gyakorlása mellett a formkezeléssel foglalkoztunk, konkrétan a `controlled forms` koncepcióval: [Itt olvashatsz róla részletesebb](https://www.freecodecamp.org/news/what-are-controlled-and-uncontrolled-components-in-react/).
-
-## Még néhány Hook
+# Még néhány Hook, Custom Hooks, Context
 
 Az alábbiakban összeszedtem néhány fontosabb gondolatot, tippet azokról a hookokról, amikkel találkoztunk a gyakorlatokon egy-két példa erejéig.
 
