@@ -200,7 +200,7 @@ export const store = configureStore({
 
 A `configureStore` automatikus beállítja az alap `thunk middleware`-t, a `reducer` alatt pedig egyelőre megadunk egy `counterReducer`-t (tovább olvasva látsz majd példát arra, hogyan tudunk több reduce-t is kezelni itt). Mivel tehát jelenleg csupán egy `slice`-unk van, így erre tekinthettek úgy, mintha kitöltené a teljes `store`-t. Ezzel gyakorlatilag egy globális állapotot hoztunk létre, és egyelőre működés szintjén nem különbözünk attól, mint amikor `slice`-nélkül írtunk egy sima `reducer`-t, és azt adtuk meg a `configureStore`-nak.
 
-![image](https://github.com/user-attachments/assets/64fcc5f6-452e-44be-ab08-8822d0bcb227)
+![image](https://github.com/user-attachments/assets/5c1bee74-ed19-4c9b-8266-0d02b9ee5620)
 
 ### Store "provide-olása" a React számára
 
@@ -421,7 +421,12 @@ Mi a helyzet ezzel most? Egyrészt ha csak annyit mondanék, hogy `state: Counte
 
 Az első ábra azt az implementációt mutatja, ahol csak egy `slice`-unk van, és a `store`-unk teljes állapotát ez a `slice`-unk adja. Ezért is tudtuk azt mondani, hogy a `state`-nek a típusa `CounterState`, hiszen a teljes állapotunk egy `CounterState` típusú objektum. És ebből kifolyólag a `state`-en keresztül közvetlenül el tudtuk érni a `value`-t.
 
+![image](https://github.com/user-attachments/assets/5c1bee74-ed19-4c9b-8266-0d02b9ee5620)
+
 A második ábra azt mutatja, amikor több `slice`-unk van, és a fentebb már emlegetett `alterek` hogyan jelennek meg ilyenkor vizuálisan. Láthatjuk, hogy a `store`-nak van egy `counter` altere, amiben a `counter`-hez tartozó állapot van, illetve egy `user` altere, amiben a `user`-hez tartozó állapot van. Tehát a `state` ennek a kettőnek az ötvözete. A legegyszerűbb - és ezt most részletesebb magyarázat nélkül csak bedobom ide a dokumentációból: [Redux](https://react-redux.js.org/using-react-redux/usage-with-typescript) -, ha a store létrehozásakor dinamikusan kinyerjük a `RootState` típusát a `store.getState`-ből:
+
+![image](https://github.com/user-attachments/assets/a575d797-94f1-4bb5-be61-004e49c8e122)
+
 
 ```js
 // app/store.ts
@@ -442,7 +447,11 @@ export type RootState = ReturnType<typeof store.getState>
 
 ### Selectorok
 
-Ami még változik ezen kívül, az a selectorok működése. Megint vegyük elő az előbbi ábránkat, hogyan is épül fel a `store`-unk az alterekkel együtt. Míg korábban tehát azt tudtam mondani, hogy:
+Ami még változik ezen kívül, az a selectorok működése. Megint vegyük elő az előbbi ábránkat, hogyan is épül fel a `store`-unk az alterekkel együtt.
+
+![image](https://github.com/user-attachments/assets/a575d797-94f1-4bb5-be61-004e49c8e122)
+
+Míg korábban tehát azt tudtam mondani, hogy:
 
 ```js
 const selectCounterValue = (state: CounterState) => state.value;
