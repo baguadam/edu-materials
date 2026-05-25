@@ -127,7 +127,7 @@ const MyForm = () => {
     // aktuális target name-jét használjuk, és az annak megfelelő "key"-hez állítsuk be a target value-ját
     const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         const target = e.target;
-        // ez a szintaxis az úgynevezett "computer property name", annyit mondunk, hogy használd a
+        // ez a szintaxis az úgynevezett "computed property name", annyit mondunk, hogy használd a
         // target.name értékét mint property key
         setFormState({ ...formState, [target.name]: target.value });
     };
@@ -218,6 +218,43 @@ export type RootState = ReturnType<typeof store.getState>;
 import { createSlice } from "@reduxjs/toolkit";
 import type { RootState } from "./store";
 
+// feladatnak megfelelően hozd létre a szükséges típust az initial state-hez
+interface MySliceType {
+    name: string;
+    value: number[];
+};
+
+// feladatnak megfelelően állítsd be az initialState-et
+const initialState: MySliceType = {
+    name: "Villám McQueen",
+    value: [95]
+};
+
+const mySlice = createSlice({
+    name: "mySlice",
+    initialState,
+    reducers: {
+      // ide jönnek a reducerek, pl
+    }
+})
+
+// action exportok, kommenteld ki írd a további action-öket a { } közé
+// export const { } = mySlice.actions;
+
+// selectors
+// ide írd majd a selectorokat, pl:
+// export const selectName = (state: RootState) => state.mySlice.name;
+
+// reducer export
+export default mySlice.reducer;
+```
+
+### Példa konkrét action-nel, selectorokkal
+
+```js
+import { createSlice } from "@reduxjs/toolkit";
+import type { RootState } from "./store";
+
 
 interface MySliceType {
     name: string;
@@ -297,8 +334,6 @@ export const store = configureStore({
   },
 });
 
-// És az alterek miatt szükséges definiálni a RootState-et, ha
-// precízen akarsz type-olni (szintén [07] redux-rtk)
 export type RootState = ReturnType<typeof store.getState>;
 ```
 
