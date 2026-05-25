@@ -327,7 +327,7 @@ Hasonló lépéseket követsz, mint az előbb:
 
 ## Store skeleton
 
-_Ugyanaz, mint eggyel feljebb, a \_Redux_-nál
+_Ugyanaz, mint eggyel feljebb, a Redux-nál_
 
 ## API Slice skeleton
 
@@ -371,7 +371,7 @@ export const store = configureStore({
 
 ## Provider a main.tsx-ben
 
-_Ugyanaz, mint eggyel feljebb, a \_Redux_-nál
+_Ugyanaz, mint eggyel feljebb, a Redux-nál_
 
 ## Néhány példa az RTK Query használatára
 
